@@ -28,7 +28,6 @@ class LikeAdmin(admin.ModelAdmin):
     search_fields = ('movie__title', 'user__username')
 
     def movie_like_count(self, obj):
-        # Like sonini ko'rsatish
         return obj.movie.like_count
     movie_like_count.short_description = "Like soni"
 
@@ -39,6 +38,5 @@ class MovieAdmin(admin.ModelAdmin):
     list_filter = ('country', 'language', 'genres')
 
     def like_count(self, obj):
-        # Like sonini hisoblash
         return obj.like_set.count()
     like_count.short_description = "Like soni"

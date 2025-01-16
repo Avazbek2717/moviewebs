@@ -37,12 +37,13 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, BaseModel):
-    email = models.EmailField(unique=True)
+    email = models.EmailField(null=True)
     username = models.CharField(max_length=150, unique=True)
     password = models.CharField(max_length=128)
     login_provider = models.CharField(max_length=50, blank=True, null=True)
     full_name = models.CharField(max_length=255, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
+    phone_number = models.IntegerField(blank=True,null=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
